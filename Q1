@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void print_squares(int n, int m) {
+    int area = n * m;
+    int side = 1;
+    while (side * side <= area) {
+        printf("%d ", side * side);
+        side++;
+    }
+    side--;
+    while (side > 0) {
+        int square = side * side;
+        while (area >= square) {
+            printf("%d ", square);
+            area -= square;
+        }
+        side--;
+    }
+    printf("\n");
+}
+
+int main() {
+    int n, m;
+    printf("Enter the dimensions of the rectangular piece of paper (N M): ");
+    scanf("%d %d", &n, &m);
+    printf("The series of squares that can be made out of the paper are: ");
+    print_squares(n, m);
+    return 0;
+}
